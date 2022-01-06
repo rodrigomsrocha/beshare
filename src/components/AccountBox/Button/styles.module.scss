@@ -1,0 +1,17 @@
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.125rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 6px;
+  color: var(--white);
+  background: var(--light-purple);
+  transition: 0.3s;
+  gap: 10px;
+  &:hover {
+    background: darken($color: #a594f9, $amount: 3%);
+  }
+}

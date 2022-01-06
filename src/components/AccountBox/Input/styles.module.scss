@@ -1,0 +1,20 @@
+.label {
+  color: var(--lighter-purple);
+  font-size: 1.125rem;
+  margin-bottom: 10px;
+}
+
+.input {
+  padding: 0.875rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--white);
+  transition: 0.3s;
+  font-size: 1.125rem;
+  margin-bottom: 10px;
+  &:hover,
+  &:focus {
+    outline: none;
+    background: darken($color: #f5eeff, $amount: 5%);
+  }
+}
