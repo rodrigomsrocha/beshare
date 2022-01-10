@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import { Header } from "../Header";
 
-export const Layout: FunctionComponent = ({ children }) => {
+const Layout: FunctionComponent = ({ children }) => {
   return (
     <div>
       <Header />
@@ -9,3 +9,5 @@ export const Layout: FunctionComponent = ({ children }) => {
     </div>
   );
 };
+
+export default Layout;

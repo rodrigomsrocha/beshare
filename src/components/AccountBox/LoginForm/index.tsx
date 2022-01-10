@@ -3,8 +3,13 @@ import { Input } from "../Input";
 import Google from "../../../assets/icons/google.svg";
 import styles from "./styles.module.scss";
 import { FormEvent, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../../firebase/client";
+import { useRouter } from "next/router";
 
 export function LoginForm() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,8 +22,22 @@ export function LoginForm() {
     }
   }
 
+  async function handleLoginWithEmailAndPassword(e: FormEvent) {
+    e.preventDefault();
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      router.push("/");
+    } catch (error) {
+      toast.error(error.message);
+    }
+  }
+
   return (
-    <form className={styles.formContainer}>
+    <form
+      onSubmit={handleLoginWithEmailAndPassword}
+      className={styles.formContainer}
+    >
+      <Toaster position="top-center" />
       <Input
         onChange={handleChange}
         value={email}

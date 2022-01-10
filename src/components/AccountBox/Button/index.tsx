@@ -1,11 +1,12 @@
-import { ReactNode } from "react";
+import { MouseEvent, ReactNode } from "react";
 import styles from "./styles.module.scss";
 
 interface ButtonProps {
   children?: ReactNode;
   text: string;
+  color?: string;
   type?: "submit" | "button";
-  onClick?: () => void;
+  onClick?: (e: MouseEvent<HTMLElement>) => void;
 }
 
 export function Button({
@@ -13,6 +14,7 @@ export function Button({
   children,
   text,
   type = "button",
+  color = "#a594f9",
 }: ButtonProps) {
   return (
     <button type={type} className={styles.button} onClick={onClick}>
