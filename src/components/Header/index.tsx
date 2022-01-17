@@ -5,9 +5,12 @@ import Router from "next/router";
 import { useGlobalContext } from "../../contexts/GlobalContext";
 import styles from "./styles.module.scss";
 import Pencil from "../../assets/icons/larger-edit.svg";
+import { AiOutlineFileAdd } from "react-icons/ai";
+import { useModalContext } from "../../contexts/ModalContext";
 
 export function Header() {
   const { logout, user } = useGlobalContext();
+  const { setIsOpen } = useModalContext();
 
   const [search, setSearch] = useState("");
   function handleSearch(e: FormEvent) {
@@ -76,6 +79,12 @@ export function Header() {
                         <a>
                           <Pencil />
                           Profile
+                        </a>
+                      </Link>
+                      <Link href="#">
+                        <a onClick={() => setIsOpen(true)}>
+                          <AiOutlineFileAdd size="40px" />
+                          Post
                         </a>
                       </Link>
                       <button onClick={logout}>Logout</button>

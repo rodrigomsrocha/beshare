@@ -16,6 +16,7 @@ interface GlobalProviderProps {
 interface DbUser extends User {
   username: string;
   name: string;
+  avatar: string;
 }
 
 interface GlobalContent {

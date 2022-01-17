@@ -30,6 +30,23 @@
     align-items: center;
     gap: 1.25rem;
     padding: 1.25rem 0;
+    button {
+      border: none;
+      background: transparent;
+    }
+    .popper {
+      transition: 0.3s;
+      background: var(--light-purple);
+      opacity: 0;
+      visibility: hidden;
+      color: var(--white);
+      border-radius: 6px;
+      padding: 0.625rem;
+      &.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
     svg {
       cursor: pointer;
     }
@@ -40,8 +57,12 @@
     grid-row: 2 / 3;
     width: 560px;
     height: 560px;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: var(--white);
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 0 0 0 6px;
+      object-fit: contain;
+    }
   }
 }

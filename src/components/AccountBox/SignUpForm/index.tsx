@@ -1,7 +1,13 @@
 import { useRouter } from "next/router";
 import { FormEvent, useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { collection, doc, getDocs, updateDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDocs,
+  setDoc,
+  updateDoc,
+} from "firebase/firestore";
 
 import { auth, db } from "../../../firebase/client";
 
@@ -50,7 +56,13 @@ export function SignUpForm() {
         password
       );
       const userDoc = doc(db, "users", userCredentials.user.uid);
-      await updateDoc(userDoc, { name, username });
+      await setDoc(userDoc, {
+        name,
+        username,
+        email: userCredentials.user.email,
+        avatar: null,
+        uid: userCredentials.user.uid,
+      });
       router.push("/");
     } catch (error) {
       switch (error.message) {
